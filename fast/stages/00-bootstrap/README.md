@@ -262,7 +262,7 @@ terraform init
 terraform apply \
   -var bootstrap_user=$(gcloud config list --format 'value(core.account)')
 ```
-
+(If you see any error with project resource alread exists, please check if project name is unique or it was not deleted recently)
 Once the initial `apply` completes successfully, configure a remote backend using the new GCS bucket, and impersonation on the automation service account for this stage. To do this you can use the generated `providers.tf` file if you have configured output files as described above, or extract its contents from Terraform's output, then migrate state with `terraform init`:
 
 ```bash
